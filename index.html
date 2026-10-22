@@ -24,38 +24,54 @@
 .turning-leaf{position:absolute;top:0;bottom:0;width:50%;transform-style:preserve-3d;z-index:4;will-change:transform}.turning-leaf.forward{left:50%;transform-origin:left center}.turning-leaf.backward{left:0;transform-origin:right center}.leaf-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fffaf1;overflow:hidden;border:1px solid #e5d5c5}.leaf-front{transform:translateZ(.5px)}.leaf-back{transform:rotateY(180deg) translateZ(.5px)}.leaf-face:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#5d3c2510,#543823bb);opacity:var(--shade,0);pointer-events:none}.leaf-face:has(>.album-photo){padding:23px;background:linear-gradient(90deg,#e7d8c6,#fffdf6 15%,#fff9ee)}.book-spine{position:absolute;top:0;bottom:0;width:16px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#9b77583b,transparent);z-index:5;pointer-events:none}.album-bottom{display:flex;gap:15px;align-items:center;justify-content:center;margin-top:32px;color:var(--rose)}.album-bottom>span{font-size:24px}.album-bottom output{font-size:10px;letter-spacing:2px;color:var(--muted)}.swipe-hint{min-height:20px}.book img{-webkit-user-drag:none}
 .extra-charms{display:flex;gap:18px;align-items:center;justify-content:center;color:#bd7c8c;margin:22px 0 12px}.extra-charms svg{width:25px;height:29px;transform:rotate(-8deg)}.extra-charms svg:nth-child(2){transform:rotate(10deg);color:#bd9a66}.tiny-charm{position:absolute;right:8%;top:11%;width:35px;height:40px;color:#c88d9a;opacity:.6;transform:rotate(12deg);pointer-events:none}
 @media(max-width:600px){.book{height:300px;margin-top:30px}.image-page,.leaf-face:has(>.album-photo){padding:13px 10px}.note-page,.leaf-face:has(>.hand){padding:18px 12px}.note-page .hand,.leaf-face>.hand{font-size:27px}.note-page p,.leaf-face>p{font-size:10px;line-height:1.8}.album-photo{padding:5px}.tiny-charm{width:24px;right:6%;top:6%}}
+
+/* Penyempurnaan responsif: teks tetap mengalir, foto tidak meluber. */
+html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8px,transparent .8px);background-size:11px 11px}main,section,.hero>div{min-width:0}h1,h2{max-width:100%;text-wrap:balance}p,.hand,.sub,.letter-body{overflow-wrap:break-word}.btn{min-height:46px;max-width:100%;line-height:1.5}.birthday-form input{min-width:0;max-width:100%;font-size:16px;appearance:none;-webkit-appearance:none}.letter{transform:none;border-radius:4px}.letter-body{font-size:14px;line-height:1.85}.signature{font-size:30px}.letter:after{content:'♡';position:absolute;right:19px;top:10px;color:#ce9aa7;font-size:20px}.heart-board{width:min(820px,100%)}.heart-photo{width:13.6%;min-width:0;overflow:hidden}.heart-photo img,.photo img,.album-photo img{display:block;object-position:center 36%}.heart-center{font-size:clamp(22px,4.5vw,46px);max-width:55%;white-space:normal;line-height:1.2}.heart-photo:focus-visible{z-index:6;outline-color:#f8c0d4}.replay{min-height:44px;font-size:12px}.below{font-size:12px}.polaroid figcaption{font-size:clamp(20px,2.2vw,28px);line-height:1.3;min-height:57px;display:grid;place-items:center}.gallery{padding-inline:4px}.chapter>.hand{max-width:700px;margin-inline:auto}.note-page p,.leaf-face>p{font-size:14px;line-height:1.7;max-width:250px}.note-page .hand,.leaf-face>.hand{font-size:35px;line-height:1.15}.album-photo{min-height:0}.album-photo img{min-height:0}.book{height:clamp(340px,45vw,460px)}.page-number{bottom:12px}.wish-text{font-size:clamp(21px,3vw,29px);line-height:1.7}.closing p{font-size:14px}.closing .hand{font-size:clamp(28px,4vw,36px)}
+.party-garland{position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;gap:12px;color:#c78294;pointer-events:none;opacity:.65}.party-garland span{font-size:19px}.party-garland span:nth-child(even){transform:translateY(7px);color:#ba9b68}.section-ornament{position:absolute;top:34px;left:6%;width:30px;height:40px;color:#bd7c8c;opacity:.65;pointer-events:none}.section-ornament.right{left:auto;right:6%;transform:rotate(16deg)}.section-ornament svg{width:100%;height:100%}.night .section-ornament{color:#e7b3c8}.night .party-garland{color:#e4b5c4}.screen>*:not(.doodle):not(.tiny-charm):not(.party-garland){position:relative;z-index:1}#gift-screen{overflow:hidden}.gift{position:relative;transform-origin:center bottom}.gift.party-open{animation:gift-pop .8s both}.gift:focus-visible{border-radius:25px}.surprise-page{animation:arrive .8s both}.birthday-confetti{position:fixed;width:9px;height:15px;left:var(--left);top:-30px;border-radius:2px;background:var(--color);z-index:40;pointer-events:none;animation:party-fall var(--duration) var(--delay) cubic-bezier(.15,.6,.5,1) both}.birthday-confetti.heart{background:none;color:var(--color);font-size:19px;width:auto;height:auto}.gift-flash{position:fixed;inset:0;z-index:35;pointer-events:none;background:radial-gradient(circle,#ffe6bdaa,transparent 70%);animation:soft-flash 1.1s both}
+.soundtrack{width:min(650px,calc(100% - 40px));margin:0 auto 35px;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:20px;align-items:center;border:1px solid #e1c4c5;border-radius:14px;background:#fffdf6;text-align:left;box-shadow:0 5px 24px #8653630a}.soundtrack.local-audio{grid-template-columns:1fr}.soundtrack h2{font-size:26px;letter-spacing:-.5px;margin-bottom:9px}.soundtrack p{font-size:12px;color:var(--muted);margin-bottom:8px}.soundtrack .eyebrow{font-size:9px;margin-bottom:9px}.soundtrack a{color:var(--rose);font-size:12px;text-underline-offset:3px}.youtube-wrap{width:100%;height:200px;background:#211e2c;border-radius:8px;overflow:hidden}.youtube-wrap iframe{display:block;width:100%;height:200px;border:0}.music-toggle{position:fixed;z-index:15;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));border:1px solid #e0aaba;background:#fff8eff5;box-shadow:0 4px 20px #643e4a20;border-radius:30px;color:var(--ink);padding:11px 15px;min-height:44px;font-size:12px}.music-toggle:focus-visible{outline-offset:2px}.lightbox{overscroll-behavior:contain}.lightbox img{max-width:94vw;max-height:85svh;border-radius:4px}.lightbox button{width:48px;height:48px}.video-frame video{max-height:75svh;object-fit:contain}.extra-charms{margin-top:30px}.video-placeholder{padding:20px}.video-placeholder small{font:12px/1.6 'DM Sans',sans-serif;color:var(--muted);display:block;margin-top:10px}
+@keyframes gift-pop{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg) scale(1.04)}45%{transform:rotate(8deg) scale(1.1)}70%{transform:translateY(-18px) rotate(-4deg) scale(1.15);filter:brightness(1.2)}}@keyframes party-fall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}8%{opacity:1}100%{opacity:0;transform:translate3d(var(--drift),110svh,0) rotate(var(--spin))}}@keyframes soft-flash{0%,100%{opacity:0}35%{opacity:1}}
+@media(min-width:601px) and (max-width:1000px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr));max-width:850px}.note-page p,.leaf-face>p{font-size:13px}}
+@media(max-width:600px){.masthead{margin:0 5%;height:64px;gap:12px}.stamp{font-size:8px;letter-spacing:.65px}.brand{white-space:nowrap}.screen{min-height:calc(100svh - 64px);padding:44px 22px 35px}.screen h1,.hero h1{font-size:clamp(37px,10vw,48px)}.screen h1{line-height:1.12}.hero{gap:25px}.hero-art{width:140px}.hero .hand{font-size:26px}.countdown{gap:clamp(8px,3vw,15px)}.time{min-width:35px}.time b{font-size:31px}.letter{padding:26px 22px;margin-top:0}.letter .hand{font-size:30px}.letter-body{font-size:13px;line-height:1.8}.signature{font-size:27px}.chapter{padding:64px 18px}.chapter h2{font-size:clamp(33px,9vw,43px)}.chapter>.hand{font-size:29px;max-width:320px}.chapter .sub{max-width:300px;font-size:13px}.heart-board{width:100%;margin:25px auto 18px}.heart-photo{width:14.3%;border-width:2px}.heart-center{font-size:clamp(21px,6.8vw,29px)}.heart-photo:hover{z-index:4}.gallery{gap:28px 16px}.polaroid{padding:7px 7px 0}.polaroid figcaption{font-size:24px;padding:12px 1px;min-height:62px}.gallery-note{font-size:28px;line-height:1.4}.book{height:340px;width:100%;margin-top:30px}.note-page,.leaf-face:has(>.hand){padding:20px 10px 32px}.note-page .hand,.leaf-face>.hand{font-size:clamp(23px,6.8vw,29px);margin-bottom:13px}.note-page p,.leaf-face>p{font-size:12px;line-height:1.65}.image-page,.leaf-face:has(>.album-photo){padding:13px 8px}.album-photo{transform:rotate(1deg);padding:4px}.swipe-hint{font-size:12px}.section-ornament{top:22px;width:23px;height:29px;left:5%}.section-ornament.right{right:5%}.party-garland{gap:10px;top:13px}.party-garland span{font-size:15px}.doodle.left{left:3%;top:10%}.doodle.right{right:3%;bottom:5%}.gift-hint{font-size:27px}.gift{width:190px}.soundtrack{grid-template-columns:1fr;padding:18px;max-width:340px;gap:14px}.soundtrack h2{font-size:25px}.soundtrack p{font-size:12px}.youtube-wrap{width:100%;height:200px}.music-toggle{padding:10px 13px;font-size:11px}.closing{padding:58px 22px 100px}.closing p{font-size:13px}.closing small{letter-spacing:1.4px}.video-frame{aspect-ratio:4/3}.video-placeholder p{font-size:25px}.video-placeholder small{font-size:11px}.wish-chapter{padding-top:35px}}
+@media(max-width:360px){.stamp{font-size:7px}.brand{font-size:19px}.screen{padding-inline:18px}.letter{padding-inline:19px}.chapter{padding-inline:15px}.book{height:350px}.note-page p,.leaf-face>p{font-size:11px}.polaroid figcaption{font-size:21px}.btn span{margin-left:12px}}
+@media(prefers-reduced-motion:reduce){.birthday-confetti,.gift-flash{display:none}.surprise-page,.gift.party-open{animation:none}}
+
 </style>
 </head>
 <body>
 <header class="masthead"><div class="brand"><span>♡</span>just for you.</div><div class="stamp">October 23, 2026 · ♡</div></header>
 <main>
 <section class="screen" id="countdown-screen" aria-labelledby="countdown-title">
-  <div class="hero"><div><p class="eyebrow">For my favorite person</p><p class="hand">I'd wait a thousand days for you.</p><h1 id="countdown-title">Your day is<br><em>almost here.</em></h1><p class="sub" id="countdown-copy">A birthday surprise for you, Sayang.<br>Come back when the clock strikes midnight.</p>
+  <div class="hero"><div><p class="eyebrow">For the birthday girl</p><p class="hand">A little birthday magic, just for you.</p><h1 id="countdown-title">Your day is<br><em>almost here.</em></h1><p class="sub" id="countdown-copy">A birthday surprise for you, Sayang.<br>Come back when the clock strikes midnight.</p>
     <div class="countdown" aria-label="Countdown to October 23, 2026 at midnight WITA"><div class="time"><b id="days">00</b><small>Days</small></div><span class="colon">:</span><div class="time"><b id="hours">00</b><small>Hours</small></div><span class="colon">:</span><div class="time"><b id="minutes">00</b><small>Minutes</small></div><span class="colon">:</span><div class="time"><b id="seconds">00</b><small>Seconds</small></div></div>
     <p class="waiting" id="waiting-note">♡ A little patience, my love. It's almost time.</p>
     <!-- Tombol hanya muncul sesudah countdown habis. -->
     <button class="btn" id="start-button" hidden>Open your birthday surprise <span>→</span></button><p class="timezone">October 23, 2026 · 00:00 WITA (UTC+8)</p>
   </div><div class="hero-art"><div class="cake-card"><span class="corner-note">made with love ♡</span>
-    <svg viewBox="0 0 300 300" fill="none" role="img" aria-label="A pink birthday cake with a heart candle"><ellipse cx="150" cy="244" rx="110" ry="17" fill="#dfbcb5"/><ellipse cx="150" cy="235" rx="101" ry="17" fill="#fff8ea" stroke="#b96a7a" stroke-width="2"/><path d="M68 155h164v63c0 28-164 28-164 0z" fill="#c87e8e" stroke="#b36577" stroke-width="2"/><path d="M68 156v25q12 22 23 0q12-22 24 0q12 22 24 0q12-22 24 0q12 22 24 0q12-22 24 0q11 22 21 0v-25" fill="#fff0e6" stroke="#b36577" stroke-width="2"/><ellipse cx="150" cy="155" rx="82" ry="23" fill="#ffe7dc" stroke="#b36577" stroke-width="2"/><path d="M82 216q68 22 136 0" stroke="#f6b2bc" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 12"/><path d="M145 101h12v51q-6 5-12 0z" fill="#fff4da" stroke="#b36577" stroke-width="2"/><path d="M146 113l10 5m-10 7l10 5m-10 7l10 5" stroke="#d28393" stroke-width="3"/><path d="M151 99c-34-19-11-43 0-25 12-18 34 6 0 25" fill="#b94e68"/><path d="M111 71l-6-12m77 0-5 12m-27-16v-9m-43 56-13-2m100 1 12-5" stroke="#bc945f" stroke-width="2" stroke-linecap="round"/></svg><span class="hand">save a little wish for me</span>
+    <svg viewBox="0 0 300 300" fill="none" role="img" aria-label="A pink birthday cake with a heart candle"><ellipse cx="150" cy="244" rx="110" ry="17" fill="#dfbcb5"/><ellipse cx="150" cy="235" rx="101" ry="17" fill="#fff8ea" stroke="#b96a7a" stroke-width="2"/><path d="M68 155h164v63c0 28-164 28-164 0z" fill="#c87e8e" stroke="#b36577" stroke-width="2"/><path d="M68 156v25q12 22 23 0q12-22 24 0q12 22 24 0q12-22 24 0q12 22 24 0q12-22 24 0q11 22 21 0v-25" fill="#fff0e6" stroke="#b36577" stroke-width="2"/><ellipse cx="150" cy="155" rx="82" ry="23" fill="#ffe7dc" stroke="#b36577" stroke-width="2"/><path d="M82 216q68 22 136 0" stroke="#f6b2bc" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 12"/><path d="M145 101h12v51q-6 5-12 0z" fill="#fff4da" stroke="#b36577" stroke-width="2"/><path d="M146 113l10 5m-10 7l10 5m-10 7l10 5" stroke="#d28393" stroke-width="3"/><path d="M151 99c-34-19-11-43 0-25 12-18 34 6 0 25" fill="#b94e68"/><path d="M111 71l-6-12m77 0-5 12m-27-16v-9m-43 56-13-2m100 1 12-5" stroke="#bc945f" stroke-width="2" stroke-linecap="round"/></svg><span class="hand">make your sweetest wish</span>
   </div></div></div><p class="footnote">Something sweet is waiting for you</p>
 </section>
-<section class="screen" id="birthday-screen" hidden aria-labelledby="birthday-title"><p class="hand">♡</p><p class="eyebrow">01 / The day your story began</p><h1 id="birthday-title">One date.<br><em>My favorite person.</em></h1><p class="sub">Before you come in, tell me your date of birth.<br>This little surprise belongs to you.</p><form class="birthday-form" id="birthday-form"><label for="birthday">Your date of birth</label><input id="birthday" type="date" required autocomplete="bday" aria-describedby="birthday-error"><button class="btn" type="submit">Unlock my surprise <span>♡</span></button><p class="error" id="birthday-error" role="alert"></p></form><p class="footnote"><span class="dots">● ○ ○</span>Only you, always you</p></section>
-<section class="screen" id="letter-screen" hidden aria-labelledby="letter-title"><p class="eyebrow">02 / A few words, just for you</p><h1 id="letter-title">Today is all <em>about you.</em></h1><article class="letter"><p class="hand">To the love of my life,</p><div class="letter-body" id="greeting"></div><p class="signature">All my love, always ♡</p></article><button class="btn" id="to-gift">I have something for you <span>→</span></button><p class="footnote"><span class="dots">○ ● ○</span>One more thing before you go</p></section>
-<section class="screen" id="gift-screen" hidden aria-labelledby="gift-title"><p class="eyebrow">03 / This one's yours</p><h1 id="gift-title">A little gift.<br><em>From me to you.</em></h1><p class="sub">No big speech this time.<br>Just open it, love.</p><button class="gift" id="open-gift" aria-label="Open your birthday gift"><svg viewBox="0 0 240 225" fill="none" aria-hidden="true"><ellipse cx="121" cy="205" rx="85" ry="11" fill="#ead7cb"/><path d="M50 103h140v87q-70 19-140 0z" fill="#ecc6c6" stroke="#b76572" stroke-width="2"/><path d="M110 103h24v94h-24z" fill="#bb5368"/><path d="M43 83q77-12 154 0v29q-77 10-154 0z" fill="#f2d5d1" stroke="#b76572" stroke-width="2"/><path d="M108 77h27v39h-27z" fill="#c35f72"/><path d="M120 79C66 90 64 40 82 38c20-2 38 41 38 41Zm0 0c54 11 56-39 38-41-20-2-38 41-38 41Z" fill="#d27d8b" stroke="#ad4a60" stroke-width="2"/><path d="M121 80 91 129l-2-20-18 4 37-38m13 5 29 49 2-20 18 4-36-38" fill="#b8536a"/><ellipse cx="121" cy="79" rx="13" ry="11" fill="#a9475d"/><path d="M187 37c-15-10-5-22 0-13 6-9 16 3 0 13" fill="#cb8992"/></svg></button><p class="gift-hint">a tiny tap, a little surprise ↗</p><p class="footnote"><span class="dots">○ ○ ●</span>Made with you in mind</p></section>
+<section class="screen" id="birthday-screen" hidden aria-labelledby="birthday-title"><p class="hand">♡</p><p class="eyebrow">01 / The day your story began</p><h1 id="birthday-title">The day<br><em>you were born.</em></h1><p class="sub">Before you come in, tell me your date of birth.<br>This little surprise belongs to you.</p><form class="birthday-form" id="birthday-form"><label for="birthday">Your date of birth</label><input id="birthday" type="date" required autocomplete="bday" aria-describedby="birthday-error"><button class="btn" type="submit">Open your surprise <span>♡</span></button><p class="error" id="birthday-error" role="alert"></p></form><p class="footnote"><span class="dots">● ○ ○</span>Only you, always you</p></section>
+<section class="screen" id="letter-screen" hidden aria-labelledby="letter-title"><p class="eyebrow">02 / A few words, just for you</p><h1 id="letter-title">Today is all <em>about you.</em></h1><article class="letter"><p class="hand">To the love of my life,</p><div class="letter-body" id="greeting"></div><p class="signature">All my love, always ♡</p></article><button class="btn" id="to-gift">A little gift awaits <span>→</span></button><p class="footnote"><span class="dots">○ ● ○</span>One more thing before you go</p></section>
+<section class="screen" id="gift-screen" hidden aria-labelledby="gift-title"><p class="eyebrow">03 / This one's yours</p><h1 id="gift-title">A little gift.<br><em>All for you.</em></h1><p class="sub">A little love, a little birthday magic.<br>Go on, make it yours.</p><button class="gift" id="open-gift" aria-label="Open your birthday gift"><svg viewBox="0 0 240 225" fill="none" aria-hidden="true"><ellipse cx="121" cy="205" rx="85" ry="11" fill="#ead7cb"/><path d="M50 103h140v87q-70 19-140 0z" fill="#ecc6c6" stroke="#b76572" stroke-width="2"/><path d="M110 103h24v94h-24z" fill="#bb5368"/><path d="M43 83q77-12 154 0v29q-77 10-154 0z" fill="#f2d5d1" stroke="#b76572" stroke-width="2"/><path d="M108 77h27v39h-27z" fill="#c35f72"/><path d="M120 79C66 90 64 40 82 38c20-2 38 41 38 41Zm0 0c54 11 56-39 38-41-20-2-38 41-38 41Z" fill="#d27d8b" stroke="#ad4a60" stroke-width="2"/><path d="M121 80 91 129l-2-20-18 4 37-38m13 5 29 49 2-20 18 4-36-38" fill="#b8536a"/><ellipse cx="121" cy="79" rx="13" ry="11" fill="#a9475d"/><path d="M187 37c-15-10-5-22 0-13 6-9 16 3 0 13" fill="#cb8992"/></svg></button><p class="gift-hint">a tiny tap, a little surprise ↗</p><p class="footnote"><span class="dots">○ ○ ●</span>Made with you in mind</p></section>
+<aside class="soundtrack" id="soundtrack" aria-label="A birthday song" hidden>
+  <div><p class="eyebrow">A song for your day</p><h2>Perfect, just as you are. ♡</h2><p>Ed Sheeran · Perfect</p><p id="music-status" role="status">A little soundtrack for your birthday.</p><a id="song-link" href="https://www.youtube.com/watch?v=2Vv-BfVoq4g&amp;t=85s" target="_blank" rel="noopener">Listen on YouTube ↗</a></div>
+  <div class="youtube-wrap"><div id="birthday-song"></div></div>
+</aside>
 <!-- Bagian ini hanya muncul SETELAH ikon hadiah diklik. -->
-<div id="surprise" hidden>
-  <section class="chapter night" id="heart-chapter"><p class="hand">there you are, in every corner of my heart</p><p class="eyebrow">My favorite constellation</p><h2>It always comes back <em>to you.</em></h2><p class="sub">All these little moments. All this love.</p><div class="heart-board" id="heart-board" aria-label="Your photos forming a heart"><div class="heart-glow" aria-hidden="true"></div><div class="heart-center">you have my heart.</div></div><button class="replay" id="replay-heart">Watch it again ↺</button><p class="below">Keep scrolling. I have a few more things for you. ↓</p></section>
-  <section class="chapter"><p class="hand">a few things I never get tired of looking at</p><p class="eyebrow">Ten moments, kept close</p><h2>My favorite view <em>is you.</em></h2><div class="gallery" id="gallery"></div><p class="gallery-note">I'd choose these moments. I'd choose you. ♡</p></section>
-  <section class="chapter book-chapter"><p class="hand">let's keep turning the pages</p><p class="eyebrow">Our little photo book</p><h2>Five pages. <em>So much love.</em></h2><div class="book" id="book" role="region" aria-label="Five-page photo album" tabindex="0">
+<div id="surprise" hidden class="surprise-page">
+  <section class="chapter night" id="heart-chapter"><p class="hand">a whole heart, filled with you</p><p class="eyebrow">A birthday constellation</p><h2>Every little piece.<br><em>All for you.</em></h2><p class="sub">Your smile. Your silliness. Everything that makes you, you.</p><div class="heart-board" id="heart-board" aria-label="Your photos forming a heart"><div class="heart-glow" aria-hidden="true"></div><div class="heart-center">so very loved.</div></div><button class="replay" id="replay-heart">Watch it again ↺</button><p class="below">More little birthday wishes are waiting below. ↓</p></section>
+  <section class="chapter"><p class="hand">all the little things that make you lovely</p><p class="eyebrow">Ten moments, kept close</p><h2>So many reasons<br><em>to celebrate you.</em></h2><div class="gallery" id="gallery"></div><p class="gallery-note">A little sunshine, in every frame. ♡</p></section>
+  <section class="chapter book-chapter"><p class="hand">let's keep turning the pages</p><p class="eyebrow">A little book, all about you</p><h2>Five pages. <em>So much love.</em></h2><div class="book" id="book" role="region" aria-label="Five-page photo album" tabindex="0">
     <div class="book-base"><div class="base-page note-page" id="base-left"></div><div class="base-page image-page" id="base-right"></div></div>
     <div class="turning-leaf forward" id="turning-leaf" hidden aria-hidden="true"><div class="leaf-face leaf-front" id="leaf-front"></div><div class="leaf-face leaf-back" id="leaf-back"></div></div>
     <div class="book-spine" aria-hidden="true"></div>
   </div><div class="album-bottom"><span aria-hidden="true">↔</span><output id="page-counter" aria-live="polite">01 / 05</output></div><p class="swipe-hint" id="book-hint">Swipe left to turn the page</p></section>
-  <section class="chapter"><p class="hand">some moments are better with the sound on</p><p class="eyebrow">One more memory</p><h2>I'd watch this <em>over and over.</em></h2><div class="video-frame" id="video-frame"></div></section>
-  <section class="chapter wish-chapter"><p class="hand">♡</p><p class="eyebrow">My wish for you</p><h2>For the year <em>ahead.</em></h2><div class="wish-text" id="wish"></div><p class="hand">And I hope I get to be there for it all.</p></section>
-  <footer class="closing"><p class="eyebrow">October 23 · Your day, my love</p><h2>Happy Birthday, <em>Sayang.</em></h2><p>I'm grateful you were born, grateful you found me,<br>and grateful I get to love you.<br>I want forever with you.</p><div class="hand">Here's to you. Here's to us. ♡</div><small>With love, from me to you</small></footer>
+  <section class="chapter"><p class="hand">some moments are better with the sound on</p><p class="eyebrow">One more memory</p><h2>A little moment.<br><em>A lovely memory.</em></h2><div class="video-frame" id="video-frame"></div></section>
+  <section class="chapter wish-chapter"><p class="hand">♡</p><p class="eyebrow">A birthday wish for you</p><h2>For the year <em>ahead.</em></h2><div class="wish-text" id="wish"></div><p class="hand">May this be a gentle, happy year for you. ♡</p></section>
+  <footer class="closing"><p class="eyebrow">October 23 · Your day, sweet girl</p><h2>Happy Birthday, <em>Sayang.</em></h2><p>You deserve a day full of love, a year full of good things,<br>and so many reasons to smile.<br>You are loved, Sayang. Always.</p><div class="hand">Here's to your next beautiful chapter. ♡</div><small>All the love, just for you</small></footer>
 </div>
 </main>
+<button id="music-toggle" class="music-toggle" type="button" hidden aria-label="Play birthday song">♫ Play song</button>
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Your photo" aria-modal="true" hidden><button id="close-photo" aria-label="Close photo">×</button><img id="large-photo" alt="A favorite photo of you"></div>
 <script>
 /* ==========================================================
@@ -116,26 +132,30 @@ const CONFIG = {
     "photos/foto-09.jpg", // Foto 9
     "photos/foto-10.jpg" // Foto 10
   ],
-  greeting: `Happy birthday, sayang.
+  greeting: `Happy birthday, Sayang.
 
-I wish I could put into words how much you mean to me. You make the ordinary days the ones I look forward to, and being with you is one of my favorite parts of life.
+Today is yours. Take your time, make a wish, have another slice of cake, and enjoy being celebrated. You deserve every bit of it.
 
-I hope today makes you feel as loved as you are. Thank you for being here, for being you, and for letting me love you.
+May your days be kinder, your worries feel lighter, and the things you have been working so hard for find their way to you. Be proud of how far you have come, even on the days when it does not feel like much.
 
-I'm so happy I get to celebrate you.`,
-  book: [ // FOTO ALBUM: nama sudah diisi, cukup rename lima file JPG kamu.
-    {photo:"photos/buku-01.jpg", title:"That smile.", text:"Still my favorite thing to see.\nI hope you never run out of reasons to smile."},
-    {photo:"photos/buku-02.jpg", title:"You, being you.", text:"You don't have to do anything special.\nI just like being around you."},
-    {photo:"photos/buku-03.jpg", title:"My happy place.", text:"Some days, all I need is a little time with you.\nEverything feels better after that."},
-    {photo:"photos/buku-04.jpg", title:"The little things.", text:"The laughs, the conversations, the ordinary days.\nI want to keep all of them."},
-    {photo:"photos/buku-05.jpg", title:"More of us.", text:"More birthdays. More memories.\nMore pages with you in them."}
+Keep your lovely smile, your little quirks, and that heart of yours. You are so easy to love, just as you are.
+
+I love you, birthday girl. Have the sweetest day.`,
+  book: [ // FOTO BUKU: ganti lima file JPG di folder photos/ untuk mengganti gambar.
+    {photo:"photos/buku-01.jpg", title:"That smile.", text:"May this year give you plenty of reasons to smile.\nThe real, can't-help-it kind."},
+    {photo:"photos/buku-02.jpg", title:"Just as you are.", text:"You are lovely on the ordinary days, too.\nYou never have to earn being loved."},
+    {photo:"photos/buku-03.jpg", title:"Little joys.", text:"Good food. Your favorite songs. A quiet afternoon.\nMay there be so much of what makes you happy."},
+    {photo:"photos/buku-04.jpg", title:"Your own pace.", text:"There is no rush to have it all figured out.\nBe gentle with yourself along the way."},
+    {photo:"photos/buku-05.jpg", title:"A new chapter.", text:"More laughter. New places. Lovely surprises.\nSo many good things still waiting for you."}
   ],
   video: "videos/ulang-tahun.mp4", // VIDEO DI SINI: "videos/ultah.mp4" atau URL .mp4 langsung.
-  wish: `I hope this year brings you closer to the things you've been hoping for.
+  wish: `May this year bring you a little closer to the life you want.
 
-I hope you find time to rest, people who are kind to you, and little things that make even the difficult days feel lighter.
+May there be good news on the days you need it, rest when you are tired, and kind people wherever you go.
 
-And whatever the year brings, I hope you know you can always count on me.`
+Keep making room for the things that make you happy. Your dreams matter, your feelings matter, and you deserve to feel loved through all of it.
+
+Happy twentieth birthday, Sayang. There is so much ahead of you.`
 };
 const $ = id => document.getElementById(id);
 const screens = ["countdown-screen","birthday-screen","letter-screen","gift-screen"];
@@ -164,21 +184,21 @@ $("start-button").onclick=()=>{if(ready())showScreen(1);};
 $("birthday-form").onsubmit=event=>{
   event.preventDefault();if(!ready()){showScreen(0);return;}
   if($("birthday").value!==CONFIG.birthday){verified=false;$("birthday-error").textContent="Not quite, love. Try your full date of birth again.";$("birthday").setAttribute("aria-invalid","true");return;}
-  $("birthday-error").textContent="";$("birthday").removeAttribute("aria-invalid");verified=true;showScreen(2);
+  $("birthday-error").textContent="";$("birthday").removeAttribute("aria-invalid");verified=true;showScreen(2);startBirthdayMusic();
 };
 $("to-gift").onclick=()=>showScreen(3);
 function photoContent(container,source,alt,backupSource) {
   container.replaceChildren();
   const fallback=()=>{if(container.tagName==="BUTTON")container.disabled=true;container.replaceChildren();const heart=document.createElement("span");heart.className="fallback";heart.textContent="♡";heart.setAttribute("aria-hidden","true");container.append(heart);};
   if(!source){fallback();return;}
-  const image=new Image();image.alt=alt;image.decoding="async";image.onerror=()=>{if(backupSource&&backupSource!==source){image.onerror=fallback;image.src=backupSource;}else fallback();};image.src=source;container.append(image);
+  const image=new Image();image.alt=alt;image.decoding="async";image.loading="lazy";image.draggable=false;image.onerror=()=>{if(backupSource&&backupSource!==source){image.onerror=fallback;image.src=backupSource;}else fallback();};image.src=source;container.append(image);
 }
 function photoButton(source,label,className,backupSource) {
   const button=document.createElement("button");button.className=className;button.setAttribute("aria-label",label);photoContent(button,source,label,backupSource);
-  button.onclick=()=>{if(!source)return;focusBeforePhoto=button;$("large-photo").src=button.querySelector("img")?.src||source;$("large-photo").alt=label;$("lightbox").hidden=false;$("close-photo").focus();};
+  button.onclick=()=>{if(!source)return;focusBeforePhoto=button;document.body.style.overflow="hidden";$("large-photo").src=button.querySelector("img")?.src||source;$("large-photo").alt=label;$("lightbox").hidden=false;$("close-photo").focus();};
   if(!source)button.disabled=true;return button;
 }
-const captions=["Your smile.","My favorite view.","A little sunshine.","Simply you.","My happy place.","So much joy.","Little moments.","A favorite, always.","You, again.","My whole heart."];
+const captions=["That lovely smile.","A little sunshine.","Simply you.","Birthday girl.","Little joys.","So much warmth.","Your lovely heart.","A happy little moment.","Sweet as ever.","So very loved."];
 const colors=["#eed7d4","#e2e5d8","#efdec5","#e5d7df","#e8ded1"];
 for(let i=0;i<10;i++) {
   const figure=document.createElement("figure");figure.className="polaroid";figure.style.setProperty("--r",[-3,2,-2,3,-3,2,-3,2,-2,3][i]+"deg");
@@ -189,17 +209,37 @@ for(let i=0;i<10;i++) {
 const heartSources=CONFIG.heartPhotos.length?CONFIG.heartPhotos:CONFIG.photos;
 for(let i=0;i<24;i++) {
   const t=i/24*Math.PI*2,x=16*Math.pow(Math.sin(t),3),y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
-  const card=photoButton(heartSources[i%heartSources.length],"A little piece of my heart, photo "+(i%heartSources.length+1),"heart-photo",CONFIG.photos[i%CONFIG.photos.length]);
+  const card=photoButton(heartSources[i%heartSources.length],"Birthday heart, photo "+(i%heartSources.length+1),"heart-photo",CONFIG.photos[i%CONFIG.photos.length]);
   card.style.setProperty("--x",(50+x*2.35)+"%");card.style.setProperty("--y",(45-y*2.3)+"%");card.style.setProperty("--r",((i%5-2)*4)+"deg");card.style.setProperty("--delay",i*.045+"s");$("heart-board").append(card);
 }
 function animateHeart() {$("heart-board").classList.remove("is-visible");void $("heart-board").offsetWidth;$("heart-board").classList.add("is-visible");}
 const observer=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){animateHeart();observer.disconnect();}},{threshold:.25});
 observer.observe($("heart-board"));$("replay-heart").onclick=animateHeart;
+// Klik hadiah adalah transisi halaman; konten panjang baru tampil di sini.
+function birthdayParty(){
+  if(reducedMotion)return;
+  const flash=document.createElement("div");flash.className="gift-flash";document.body.append(flash);setTimeout(()=>flash.remove(),1200);
+  for(let i=0;i<88;i++){
+    const piece=document.createElement("span");piece.className="birthday-confetti"+(i%4===0?" heart":"");
+    if(i%4===0)piece.textContent=i%8===0?"♥":"✧";
+    piece.setAttribute("aria-hidden","true");
+    piece.style.setProperty("--left",Math.random()*100+"vw");
+    piece.style.setProperty("--color",["#e79bb5","#ffd481","#c5d8b2","#fff3e4","#c786b9"][i%5]);
+    piece.style.setProperty("--delay",Math.random()*.8+"s");piece.style.setProperty("--duration",(2.7+Math.random()*1.4)+"s");
+    piece.style.setProperty("--drift",(Math.random()*150-75)+"px");piece.style.setProperty("--spin",(Math.random()*900-450)+"deg");
+    document.body.append(piece);setTimeout(()=>piece.remove(),5200);
+  }
+}
 $("open-gift").onclick=()=>{
-  if(!ready()||!verified)return;
-  if(!opened){opened=true;$("surprise").hidden=false;}
-  $("heart-chapter").scrollIntoView({behavior:reducedMotion?"instant":"smooth"});
-  if(!reducedMotion)for(let i=0;i<25;i++){const piece=document.createElement("span");piece.className="confetti";piece.textContent=["♡","✧","♥"][i%3];piece.style.left=Math.random()*100+"vw";piece.style.color=["#ba546d","#c9a06a","#dba8b4"][i%3];piece.style.animationDelay=Math.random()*.5+"s";document.body.append(piece);setTimeout(()=>piece.remove(),4200);}
+  if(!ready()||!verified||opened)return;
+  opened=true;$("open-gift").disabled=true;$("open-gift").classList.add("party-open");birthdayParty();
+  setTimeout(()=>{
+    screens.forEach(id=>$(id).hidden=true);$("surprise").hidden=false;
+    document.body.classList.add("gift-opened");
+    $("heart-chapter").scrollIntoView({behavior:"instant",block:"start"});
+    const title=$("heart-chapter").querySelector("h2");title.tabIndex=-1;title.focus({preventScroll:true});
+    birthdayParty();
+  },reducedMotion?0:760);
 };
 // Album 3D: tarik halaman ke kiri/kanan. Tidak ada tombol next.
 const book=$("book"), leaf=$("turning-leaf");
@@ -266,9 +306,9 @@ function releaseDrag(e,cancelled=false){
 book.addEventListener("pointerup",e=>releaseDrag(e));book.addEventListener("pointercancel",e=>releaseDrag(e,true));
 book.onkeydown=e=>{if((e.key==="ArrowLeft"||e.key==="ArrowRight")&&!turning){e.preventDefault();if(prepareTurn(e.key==="ArrowRight"?1:-1))requestAnimationFrame(()=>finishTurn(true));}};
 // Tidak ada pengecekan durasi atau batas ukuran video dalam kode ini.
-if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.controls=true;video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
+if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.controls=true;video.addEventListener("play",()=>{localSong.pause();if(songPlayer?.pauseVideo)songPlayer.pauseVideo();});video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
 else $("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';
-function closePhoto() {$("lightbox").hidden=true;$("large-photo").removeAttribute("src");focusBeforePhoto?.focus();}
+function closePhoto() {document.body.style.overflow="";$("lightbox").hidden=true;$("large-photo").removeAttribute("src");focusBeforePhoto?.focus();}
 $("close-photo").onclick=closePhoto;$("lightbox").onclick=e=>{if(e.target===$("lightbox"))closePhoto();};
 $("lightbox").onkeydown=e=>{if(e.key==="Escape")closePhoto();if(e.key==="Tab"){e.preventDefault();$("close-photo").focus();}};
 $("greeting").textContent=CONFIG.greeting;$("wish").textContent=CONFIG.wish;
@@ -280,6 +320,87 @@ const tinyCake='<svg viewBox="0 0 36 40" fill="none" stroke="currentColor" strok
 const littleLetter='<svg viewBox="0 0 36 32" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3" y="7" width="30" height="22" rx="2"/><path d="m3 8 15 12L33 8M3 29l10-10m20 10L23 19M18 15c-9-5-3-12 0-7 4-5 10 2 0 7Z"/></svg>';
 const charm=document.createElement("span");charm.className="tiny-charm";charm.innerHTML=littleLetter;$("countdown-screen").append(charm);
 document.querySelectorAll(".chapter:not(.night)").forEach((section,i)=>{if(i%2)return;const row=document.createElement("div");row.className="extra-charms";row.setAttribute("aria-hidden","true");row.innerHTML=tinyCake+littleLetter;section.append(row);});
+
+// Musik resmi YouTube. Tidak mengunduh atau menyertakan MP3 dari YouTube.
+// Mulai sekitar 1:25 pada music video resmi, menjelang refrain pertama.
+let songPlayer=null, musicRequested=false, songHasStarted=false, songFailed=false, localSongAvailable=false;
+const songStart=85, songId="2Vv-BfVoq4g";
+// OPSIONAL UNTUK MUSIK LATAR: taruh file audio milikmu di music/perfect.mp3.
+// Jika file tersedia, audio lokal didahulukan dan diputar langsung saat tanggal benar.
+// Ubah 50 di bawah jika ingin mengganti detik awal pada file MP3 milikmu.
+const localSong=new Audio();localSong.preload="metadata";localSong.volume=.45;
+fetch("music/perfect.mp3",{method:"HEAD"}).then(response=>{
+  if(response.ok&&/audio|octet-stream/i.test(response.headers.get("Content-Type")||"")){
+    localSong.src="music/perfect.mp3";localSong.load();localSongAvailable=true;
+  }
+}).catch(()=>{});
+localSong.addEventListener("play",()=>{songHasStarted=true;musicLabel(true);$("music-status").textContent="A little love, with the sound on. ♡";});
+localSong.addEventListener("pause",()=>musicLabel(false));
+localSong.addEventListener("ended",()=>musicLabel(false));
+function musicLabel(playing){
+  $("music-toggle").textContent=playing?"♫ Pause song":"♫ Play song";
+  $("music-toggle").setAttribute("aria-label",playing?"Pause birthday song":"Play birthday song");
+  $("music-toggle").setAttribute("aria-pressed",String(playing));
+}
+function startBirthdayMusic(){
+  musicRequested=true;$("soundtrack").hidden=false;$("music-toggle").hidden=false;
+  if(localSongAvailable){
+    document.querySelector(".youtube-wrap").hidden=true;
+    $("soundtrack").classList.add("local-audio");
+    if(!songHasStarted)localSong.currentTime=50;
+    localSong.play().catch(()=>{$("music-status").textContent="Tap Play song to start your birthday soundtrack. ♡";musicLabel(false);});
+    return;
+  }
+  if(songPlayer?.playVideo){songPlayer.playVideo();return;}
+  $("music-status").textContent="Loading a little birthday soundtrack…";
+  if(window.YT?.Player){createBirthdayPlayer();return;}
+  if(!document.getElementById("youtube-api")){
+    const script=document.createElement("script");script.id="youtube-api";script.src="https://www.youtube.com/iframe_api";script.async=true;
+    script.onerror=()=>{$("music-status").textContent="Tap Listen on YouTube to enjoy your song.";};document.head.append(script);
+  }
+  setTimeout(()=>{if(!songHasStarted&&!songFailed)$("music-status").textContent="Tap play below if your song hasn't started yet. ♡";},7000);
+}
+function createBirthdayPlayer(){
+  if(songPlayer||!musicRequested)return;
+  songPlayer=new YT.Player("birthday-song",{
+    width:260,height:200,videoId:songId,
+    playerVars:{autoplay:1,playsinline:1,start:songStart,rel:0,origin:location.origin},
+    events:{
+      onReady:event=>{event.target.setVolume(45);event.target.seekTo(songStart,true);event.target.playVideo();},
+      onStateChange:event=>{
+        const playing=event.data===1;musicLabel(playing);
+        if(playing){songHasStarted=true;$("music-status").textContent="A little love, with the sound on. ♡";}
+        if(event.data===0){$("music-status").textContent="One more listen? Tap play. ♡";}
+      },
+      onAutoplayBlocked:()=>{$("music-status").textContent="Tap play below to start your birthday song. ♡";musicLabel(false);},
+      onError:event=>{songFailed=true;$("music-status").dataset.playerError=event.data;$("music-status").textContent="Your song is waiting on YouTube. Tap the link to listen. ♡";document.querySelector(".youtube-wrap").hidden=true;$("soundtrack").classList.add("local-audio");musicLabel(false);$("music-toggle").textContent="♫ Listen on YouTube";$("music-toggle").setAttribute("aria-label","Listen to birthday song on YouTube");}
+    }
+  });
+}
+window.onYouTubeIframeAPIReady=createBirthdayPlayer;
+$("music-toggle").onclick=()=>{
+  if(localSongAvailable){
+    if(localSong.paused){if(localSong.ended)localSong.currentTime=50;localSong.play().catch(()=>{});}else localSong.pause();
+    return;
+  }
+  if(songFailed){window.open($("song-link").href,"_blank","noopener");return;}
+  if(!songPlayer?.getPlayerState){startBirthdayMusic();$("soundtrack").scrollIntoView({behavior:reducedMotion?"instant":"smooth"});return;}
+  if(songPlayer.getPlayerState()===1){songPlayer.pauseVideo();}
+  else{if(songPlayer.getPlayerState()===0)songPlayer.seekTo(songStart,true);songPlayer.playVideo();}
+};
+// Hiasan ulang tahun secukupnya: bendera kecil, pita, balon, dan bintang.
+document.querySelectorAll(".screen,.chapter,.closing").forEach((section,index)=>{
+  if(section.classList.contains("screen")){
+    const garland=document.createElement("div");garland.className="party-garland";garland.setAttribute("aria-hidden","true");
+    garland.innerHTML="<span>✧</span><span>♡</span><span>✦</span><span>♡</span><span>✧</span>";section.append(garland);
+  }else{
+    const left=document.createElement("span"),right=document.createElement("span");
+    left.className="section-ornament";right.className="section-ornament right";
+    left.innerHTML=index%2?balloon:tinyCake;right.innerHTML=index%2?bow:littleLetter;
+    left.setAttribute("aria-hidden","true");right.setAttribute("aria-hidden","true");section.append(left,right);
+  }
+});
+
 renderBook();updateCountdown();setInterval(updateCountdown,1000);
 </script>
 </body>

@@ -1,0 +1,10 @@
+Website: https://gnk969.github.io/birthday-sayang-2026/
+Repo: https://github.com/gnk969/birthday-sayang-2026
+
+39 foto sudah dimasukkan: photos/love-01.jpg sampai love-24.jpg, foto-01.jpg sampai foto-10.jpg, buku-01.jpg sampai buku-05.jpg.
+
+Untuk video nanti: simpan dengan nama ulang-tahun.mp4 dalam folder videos. Di GitHub buat folder videos melalui Add file > Create new file > videos/README.md (isi catatan singkat), commit, buka folder videos, lalu Add file > Upload files untuk upload ulang-tahun.mp4. Tunggu deploy selesai.
+
+Musik: pemutar resmi YouTube dicoba setelah tanggal lahir benar. Jika YouTube menolak embed, tombol Listen on YouTube tersedia. Untuk musik latar langsung, tambahkan file audio milikmu sebagai music/perfect.mp3; folder music diupload dengan cara serupa videos.
+
+Countdown produksi tetap 23 October 2026 00:00 WITA. Tanggal lahir 23 October 2006. QR dan URL tetap sama.
