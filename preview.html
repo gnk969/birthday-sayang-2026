@@ -60,13 +60,13 @@ html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8p
 <section class="screen" id="birthday-screen" hidden aria-labelledby="birthday-title"><p class="hand">♡</p><p class="eyebrow">01 / The day your story began</p><h1 id="birthday-title">The day<br><em>you were born.</em></h1><p class="sub">Before you come in, tell me your date of birth.<br>This little surprise belongs to you.</p><form class="birthday-form" id="birthday-form"><label for="birthday">Your date of birth</label><input id="birthday" type="date" required autocomplete="bday" aria-describedby="birthday-error"><button class="btn" type="submit">Open your surprise <span>♡</span></button><p class="error" id="birthday-error" role="alert"></p></form><p class="footnote"><span class="dots">● ○ ○</span>Only you, always you</p></section>
 <section class="screen" id="letter-screen" hidden aria-labelledby="letter-title"><p class="eyebrow">02 / A few words, just for you</p><h1 id="letter-title">Today is all <em>about you.</em></h1><article class="letter"><p class="hand">To the love of my life,</p><div class="letter-body" id="greeting"></div><p class="signature">All my love, always ♡</p></article><button class="btn" id="to-gift">A little gift awaits <span>→</span></button><p class="footnote"><span class="dots">○ ● ○</span>One more thing before you go</p></section>
 <section class="screen" id="gift-screen" hidden aria-labelledby="gift-title"><p class="eyebrow">03 / This one's yours</p><h1 id="gift-title">A little gift.<br><em>All for you.</em></h1><p class="sub">A little love, a little birthday magic.<br>Go on, make it yours.</p><button class="gift" id="open-gift" aria-label="Open your birthday gift"><svg viewBox="0 0 240 225" fill="none" aria-hidden="true"><ellipse cx="121" cy="205" rx="85" ry="11" fill="#ead7cb"/><path d="M50 103h140v87q-70 19-140 0z" fill="#ecc6c6" stroke="#b76572" stroke-width="2"/><path d="M110 103h24v94h-24z" fill="#bb5368"/><path d="M43 83q77-12 154 0v29q-77 10-154 0z" fill="#f2d5d1" stroke="#b76572" stroke-width="2"/><path d="M108 77h27v39h-27z" fill="#c35f72"/><path d="M120 79C66 90 64 40 82 38c20-2 38 41 38 41Zm0 0c54 11 56-39 38-41-20-2-38 41-38 41Z" fill="#d27d8b" stroke="#ad4a60" stroke-width="2"/><path d="M121 80 91 129l-2-20-18 4 37-38m13 5 29 49 2-20 18 4-36-38" fill="#b8536a"/><ellipse cx="121" cy="79" rx="13" ry="11" fill="#a9475d"/><path d="M187 37c-15-10-5-22 0-13 6-9 16 3 0 13" fill="#cb8992"/></svg></button><p class="gift-hint">a tiny tap, a little surprise ↗</p><p class="footnote"><span class="dots">○ ○ ●</span>Made with you in mind</p></section>
+<!-- Bagian ini hanya muncul SETELAH ikon hadiah diklik. -->
+<div id="surprise" hidden class="surprise-page">
+  <section class="chapter night" id="heart-chapter"><p class="hand">a whole heart, filled with you</p><p class="eyebrow">A birthday constellation</p><h2>Every little piece.<br><em>All for you.</em></h2><p class="sub">Your smile. Your silliness. Everything that makes you, you.</p><div class="heart-board" id="heart-board" aria-label="Your photos forming a heart"><div class="heart-glow" aria-hidden="true"></div><div class="heart-center">so very loved.</div></div><button class="replay" id="replay-heart">Watch it again ↺</button><p class="below">More little birthday wishes are waiting below. ↓</p></section>
 <aside class="soundtrack" id="soundtrack" aria-label="A birthday song" hidden>
   <div><p class="eyebrow">A song for your day</p><h2>Perfect, just as you are. ♡</h2><p>Ed Sheeran · Perfect</p><p id="music-status" role="status">A little soundtrack for your birthday.</p></div>
   <div class="youtube-wrap"><div id="birthday-song"></div></div>
 </aside>
-<!-- Bagian ini hanya muncul SETELAH ikon hadiah diklik. -->
-<div id="surprise" hidden class="surprise-page">
-  <section class="chapter night" id="heart-chapter"><p class="hand">a whole heart, filled with you</p><p class="eyebrow">A birthday constellation</p><h2>Every little piece.<br><em>All for you.</em></h2><p class="sub">Your smile. Your silliness. Everything that makes you, you.</p><div class="heart-board" id="heart-board" aria-label="Your photos forming a heart"><div class="heart-glow" aria-hidden="true"></div><div class="heart-center">so very loved.</div></div><button class="replay" id="replay-heart">Watch it again ↺</button><p class="below">More little birthday wishes are waiting below. ↓</p></section>
   <section class="chapter"><p class="hand">all the little things that make you lovely</p><p class="eyebrow">Ten moments, kept close</p><h2>So many reasons<br><em>to celebrate you.</em></h2><div class="gallery" id="gallery"></div><p class="gallery-note">A little sunshine, in every frame. ♡</p></section>
   <section class="chapter book-chapter"><p class="hand">let's keep turning the pages</p><p class="eyebrow">A little book, all about you</p><h2>Five pages. <em>So much love.</em></h2><div class="book" id="book" role="region" aria-label="Five-page photo album" tabindex="0">
     <div class="book-base"><div class="base-page note-page" id="base-left"></div><div class="base-page image-page" id="base-right"></div></div>
@@ -141,7 +141,7 @@ const CONFIG = {
   ],
   greeting: `Happy birthday, Sayang.
 
-Today is yours. Take your time, make a wish, have another slice of cake, and enjoy being celebrated. You deserve every bit of it.
+Today is yours, Sayang. May you feel loved, appreciated, and happy in all the little moments. You deserve a day that feels as lovely as you are.
 
 May your days be kinder, your worries feel lighter, and the things you have been working so hard for find their way to you. Be proud of how far you have come, even on the days when it does not feel like much.
 
@@ -191,7 +191,7 @@ $("start-button").onclick=()=>{if(ready())showScreen(1);};
 $("birthday-form").onsubmit=event=>{
   event.preventDefault();if(!ready()){showScreen(0);return;}
   if($("birthday").value!==CONFIG.birthday){verified=false;$("birthday-error").textContent="Not quite, love. Try your full date of birth again.";$("birthday").setAttribute("aria-invalid","true");return;}
-  $("birthday-error").textContent="";$("birthday").removeAttribute("aria-invalid");verified=true;showScreen(2);startBirthdayMusic();
+  $("birthday-error").textContent="";$("birthday").removeAttribute("aria-invalid");verified=true;showScreen(2);
 };
 $("to-gift").onclick=()=>showScreen(3);
 function photoContent(container,source,alt,backupSource) {
@@ -239,7 +239,7 @@ function birthdayParty(){
 }
 $("open-gift").onclick=()=>{
   if(!ready()||!verified||opened)return;
-  opened=true;$("open-gift").disabled=true;$("open-gift").classList.add("party-open");birthdayParty();
+  opened=true;$("surprise").hidden=false;startBirthdayMusic();$("open-gift").disabled=true;$("open-gift").classList.add("party-open");birthdayParty();
   setTimeout(()=>{
     screens.forEach(id=>$(id).hidden=true);$("surprise").hidden=false;
     document.body.classList.add("gift-opened");
@@ -313,7 +313,7 @@ function releaseDrag(e,cancelled=false){
 book.addEventListener("pointerup",e=>releaseDrag(e));book.addEventListener("pointercancel",e=>releaseDrag(e,true));
 book.onkeydown=e=>{if((e.key==="ArrowLeft"||e.key==="ArrowRight")&&!turning){e.preventDefault();if(prepareTurn(e.key==="ArrowRight"?1:-1))requestAnimationFrame(()=>finishTurn(true));}};
 // Tidak ada pengecekan durasi atau batas ukuran video dalam kode ini.
-if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.addEventListener("loadedmetadata",()=>{$("video-frame").classList.toggle("is-portrait",video.videoHeight>video.videoWidth);});video.controls=true;video.addEventListener("play",()=>{localSong.pause();if(songPlayer?.pauseVideo)songPlayer.pauseVideo();});video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
+if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.addEventListener("loadedmetadata",()=>{$("video-frame").classList.toggle("is-portrait",video.videoHeight>video.videoWidth);});video.controls=true;video.addEventListener("play",pauseMusicForBirthdayVideo);video.addEventListener("pause",()=>{birthdayVideoPlaying=false;});video.addEventListener("ended",resumeMusicAfterBirthdayVideo);video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
 else $("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';
 function closePhoto() {document.body.style.overflow="";$("lightbox").hidden=true;$("large-photo").removeAttribute("src");focusBeforePhoto?.focus();}
 $("close-photo").onclick=closePhoto;$("lightbox").onclick=e=>{if(e.target===$("lightbox"))closePhoto();};
@@ -331,6 +331,7 @@ document.querySelectorAll(".chapter:not(.night)").forEach((section,i)=>{if(i%2)r
 // Musik resmi YouTube. Tidak mengunduh atau menyertakan MP3 dari YouTube.
 // Mulai sekitar 1:25 pada music video resmi, menjelang refrain pertama.
 let songPlayer=null, musicRequested=false, songHasStarted=false, songFailed=false, localSongAvailable=false;
+let birthdayVideoPlaying=false, resumeSongAfterVideo=false, musicManuallyPaused=false;
 const songStart=85, songId="2Vv-BfVoq4g";
 // OPSIONAL UNTUK MUSIK LATAR: taruh file audio milikmu di music/perfect.mp3.
 // Jika file tersedia, audio lokal didahulukan dan diputar langsung saat tanggal benar.
@@ -341,7 +342,7 @@ fetch("music/perfect.mp3",{method:"HEAD"}).then(response=>{
     localSong.src="music/perfect.mp3";localSong.load();localSongAvailable=true;
   }
 }).catch(()=>{});
-localSong.addEventListener("play",()=>{songHasStarted=true;musicLabel(true);$("music-status").textContent="A little love, with the sound on. ♡";});
+localSong.addEventListener("play",()=>{if(birthdayVideoPlaying){localSong.pause();return;}songHasStarted=true;musicLabel(true);$("music-status").textContent="A little love, with the sound on. ♡";});
 localSong.addEventListener("pause",()=>musicLabel(false));
 localSong.addEventListener("ended",()=>musicLabel(false));
 function musicLabel(playing){
@@ -350,6 +351,8 @@ function musicLabel(playing){
   $("music-toggle").setAttribute("aria-pressed",String(playing));
 }
 function startBirthdayMusic(){
+  if(!opened||!verified||birthdayVideoPlaying)return;
+  musicManuallyPaused=false;
   musicRequested=true;$("soundtrack").hidden=false;$("music-toggle").hidden=false;
   if(localSongAvailable){
     document.querySelector(".youtube-wrap").hidden=true;
@@ -373,9 +376,9 @@ function createBirthdayPlayer(){
     width:260,height:200,videoId:songId,
     playerVars:{autoplay:1,playsinline:1,start:songStart,rel:0,origin:location.origin},
     events:{
-      onReady:event=>{event.target.setVolume(45);event.target.seekTo(songStart,true);event.target.playVideo();},
+      onReady:event=>{event.target.setVolume(45);event.target.seekTo(songStart,true);if(birthdayVideoPlaying||musicManuallyPaused)event.target.pauseVideo();else event.target.playVideo();},
       onStateChange:event=>{
-        const playing=event.data===1;musicLabel(playing);
+        const playing=event.data===1;if(playing&&birthdayVideoPlaying){event.target.pauseVideo();musicLabel(false);return;}musicLabel(playing);
         if(playing){songHasStarted=true;$("music-status").textContent="A little love, with the sound on. ♡";}
         if(event.data===0){$("music-status").textContent="One more listen? Tap play. ♡";}
       },
@@ -385,15 +388,27 @@ function createBirthdayPlayer(){
   });
 }
 window.onYouTubeIframeAPIReady=createBirthdayPlayer;
+function pauseMusicForBirthdayVideo(){
+  birthdayVideoPlaying=true;
+  resumeSongAfterVideo=opened&&musicRequested&&!musicManuallyPaused;
+  localSong.pause();if(songPlayer?.pauseVideo)songPlayer.pauseVideo();musicLabel(false);
+}
+function resumeMusicAfterBirthdayVideo(){
+  birthdayVideoPlaying=false;
+  const shouldResume=resumeSongAfterVideo;resumeSongAfterVideo=false;
+  if(shouldResume)startBirthdayMusic();
+}
 $("music-toggle").onclick=()=>{
+  const birthdayVideo=document.querySelector("#video-frame video");
+  if(birthdayVideo&&!birthdayVideo.paused){resumeSongAfterVideo=false;birthdayVideo.pause();birthdayVideoPlaying=false;}
   if(localSongAvailable){
-    if(localSong.paused){if(localSong.ended)localSong.currentTime=50;localSong.play().catch(()=>{});}else localSong.pause();
+    if(localSong.paused){musicManuallyPaused=false;if(localSong.ended)localSong.currentTime=50;localSong.play().catch(()=>{});}else{musicManuallyPaused=true;localSong.pause();}
     return;
   }
   if(songFailed){songFailed=false;$("music-status").textContent="Trying your birthday song again…";if(songPlayer?.loadVideoById)songPlayer.loadVideoById({videoId:songId,startSeconds:songStart});else startBirthdayMusic();return;}
   if(!songPlayer?.getPlayerState){startBirthdayMusic();$("soundtrack").scrollIntoView({behavior:reducedMotion?"instant":"smooth"});return;}
-  if(songPlayer.getPlayerState()===1){songPlayer.pauseVideo();}
-  else{if(songPlayer.getPlayerState()===0)songPlayer.seekTo(songStart,true);songPlayer.playVideo();}
+  if(songPlayer.getPlayerState()===1){musicManuallyPaused=true;songPlayer.pauseVideo();}
+  else{musicManuallyPaused=false;if(songPlayer.getPlayerState()===0)songPlayer.seekTo(songStart,true);songPlayer.playVideo();}
 };
 // Hiasan ulang tahun secukupnya: bendera kecil, pita, balon, dan bintang.
 document.querySelectorAll(".screen,.chapter,.closing").forEach((section,index)=>{

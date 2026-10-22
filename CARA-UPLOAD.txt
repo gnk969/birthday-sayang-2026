@@ -5,7 +5,7 @@ Repo: https://github.com/gnk969/birthday-sayang-2026
 
 Video sudah terpasang sebagai videos/ulang-tahun.mp4. Untuk menggantinya: simpan video baru dengan nama ulang-tahun.mp4 dalam folder videos. Di GitHub buat folder videos melalui Add file > Create new file > videos/README.md (isi catatan singkat), commit, buka folder videos, lalu Add file > Upload files untuk upload ulang-tahun.mp4. Tunggu deploy selesai.
 
-Musik: pemutar resmi YouTube dicoba setelah tanggal lahir benar. Tombol/link Listen on YouTube pada website sudah dihapus. Untuk audio lokal, tambahkan file milikmu sebagai music/perfect.mp3.
+Musik: pemutar resmi YouTube dicoba setelah ikon hadiah dibuka. Tombol/link Listen on YouTube pada website sudah dihapus. Untuk audio lokal, tambahkan file milikmu sebagai music/perfect.mp3.
 
 Countdown produksi tetap 23 October 2026 00:00 WITA. Tanggal lahir 23 October 2006. QR dan URL tetap sama.
 
