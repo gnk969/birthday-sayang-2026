@@ -35,6 +35,13 @@ html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8p
 @media(max-width:360px){.stamp{font-size:7px}.brand{font-size:19px}.screen{padding-inline:18px}.letter{padding-inline:19px}.chapter{padding-inline:15px}.book{height:350px}.note-page p,.leaf-face>p{font-size:11px}.polaroid figcaption{font-size:21px}.btn span{margin-left:12px}}
 @media(prefers-reduced-motion:reduce){.birthday-confetti,.gift-flash{display:none}.surprise-page,.gift.party-open{animation:none}}
 
+
+/* Video mempertahankan proporsi aslinya, termasuk video vertikal di HP. */
+.video-frame{display:block;width:min(780px,100%);aspect-ratio:auto;overflow:hidden;border-radius:10px}
+.video-frame.is-portrait{max-width:420px}
+.video-frame video{display:block;width:100%;height:auto;max-height:75svh;object-fit:contain}
+.video-frame .video-placeholder{min-height:180px;display:grid;place-content:center}
+@media(max-width:600px){.video-frame{width:100%;aspect-ratio:auto;margin-top:28px}.video-frame video{height:auto;max-height:72svh}}
 </style>
 </head>
 <body>
@@ -54,7 +61,7 @@ html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8p
 <section class="screen" id="letter-screen" hidden aria-labelledby="letter-title"><p class="eyebrow">02 / A few words, just for you</p><h1 id="letter-title">Today is all <em>about you.</em></h1><article class="letter"><p class="hand">To the love of my life,</p><div class="letter-body" id="greeting"></div><p class="signature">All my love, always ♡</p></article><button class="btn" id="to-gift">A little gift awaits <span>→</span></button><p class="footnote"><span class="dots">○ ● ○</span>One more thing before you go</p></section>
 <section class="screen" id="gift-screen" hidden aria-labelledby="gift-title"><p class="eyebrow">03 / This one's yours</p><h1 id="gift-title">A little gift.<br><em>All for you.</em></h1><p class="sub">A little love, a little birthday magic.<br>Go on, make it yours.</p><button class="gift" id="open-gift" aria-label="Open your birthday gift"><svg viewBox="0 0 240 225" fill="none" aria-hidden="true"><ellipse cx="121" cy="205" rx="85" ry="11" fill="#ead7cb"/><path d="M50 103h140v87q-70 19-140 0z" fill="#ecc6c6" stroke="#b76572" stroke-width="2"/><path d="M110 103h24v94h-24z" fill="#bb5368"/><path d="M43 83q77-12 154 0v29q-77 10-154 0z" fill="#f2d5d1" stroke="#b76572" stroke-width="2"/><path d="M108 77h27v39h-27z" fill="#c35f72"/><path d="M120 79C66 90 64 40 82 38c20-2 38 41 38 41Zm0 0c54 11 56-39 38-41-20-2-38 41-38 41Z" fill="#d27d8b" stroke="#ad4a60" stroke-width="2"/><path d="M121 80 91 129l-2-20-18 4 37-38m13 5 29 49 2-20 18 4-36-38" fill="#b8536a"/><ellipse cx="121" cy="79" rx="13" ry="11" fill="#a9475d"/><path d="M187 37c-15-10-5-22 0-13 6-9 16 3 0 13" fill="#cb8992"/></svg></button><p class="gift-hint">a tiny tap, a little surprise ↗</p><p class="footnote"><span class="dots">○ ○ ●</span>Made with you in mind</p></section>
 <aside class="soundtrack" id="soundtrack" aria-label="A birthday song" hidden>
-  <div><p class="eyebrow">A song for your day</p><h2>Perfect, just as you are. ♡</h2><p>Ed Sheeran · Perfect</p><p id="music-status" role="status">A little soundtrack for your birthday.</p><a id="song-link" href="https://www.youtube.com/watch?v=2Vv-BfVoq4g&amp;t=85s" target="_blank" rel="noopener">Listen on YouTube ↗</a></div>
+  <div><p class="eyebrow">A song for your day</p><h2>Perfect, just as you are. ♡</h2><p>Ed Sheeran · Perfect</p><p id="music-status" role="status">A little soundtrack for your birthday.</p></div>
   <div class="youtube-wrap"><div id="birthday-song"></div></div>
 </aside>
 <!-- Bagian ini hanya muncul SETELAH ikon hadiah diklik. -->
@@ -306,7 +313,7 @@ function releaseDrag(e,cancelled=false){
 book.addEventListener("pointerup",e=>releaseDrag(e));book.addEventListener("pointercancel",e=>releaseDrag(e,true));
 book.onkeydown=e=>{if((e.key==="ArrowLeft"||e.key==="ArrowRight")&&!turning){e.preventDefault();if(prepareTurn(e.key==="ArrowRight"?1:-1))requestAnimationFrame(()=>finishTurn(true));}};
 // Tidak ada pengecekan durasi atau batas ukuran video dalam kode ini.
-if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.controls=true;video.addEventListener("play",()=>{localSong.pause();if(songPlayer?.pauseVideo)songPlayer.pauseVideo();});video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
+if(CONFIG.video){const video=document.createElement("video");video.addEventListener("error",()=>{$("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';},{once:true});video.src=CONFIG.video;video.addEventListener("loadedmetadata",()=>{$("video-frame").classList.toggle("is-portrait",video.videoHeight>video.videoWidth);});video.controls=true;video.addEventListener("play",()=>{localSong.pause();if(songPlayer?.pauseVideo)songPlayer.pauseVideo();});video.playsInline=true;video.preload="metadata";video.setAttribute("aria-label","A video for your birthday");$("video-frame").append(video);}
 else $("video-frame").innerHTML='<div class="video-placeholder"><span aria-hidden="true">▷</span><p>A memory worth replaying. ♡</p></div>';
 function closePhoto() {document.body.style.overflow="";$("lightbox").hidden=true;$("large-photo").removeAttribute("src");focusBeforePhoto?.focus();}
 $("close-photo").onclick=closePhoto;$("lightbox").onclick=e=>{if(e.target===$("lightbox"))closePhoto();};
@@ -356,7 +363,7 @@ function startBirthdayMusic(){
   if(window.YT?.Player){createBirthdayPlayer();return;}
   if(!document.getElementById("youtube-api")){
     const script=document.createElement("script");script.id="youtube-api";script.src="https://www.youtube.com/iframe_api";script.async=true;
-    script.onerror=()=>{$("music-status").textContent="Tap Listen on YouTube to enjoy your song.";};document.head.append(script);
+    script.onerror=()=>{$("music-status").textContent="The song could not load. Tap Play song to try again. ♡";};document.head.append(script);
   }
   setTimeout(()=>{if(!songHasStarted&&!songFailed)$("music-status").textContent="Tap play below if your song hasn't started yet. ♡";},7000);
 }
@@ -373,7 +380,7 @@ function createBirthdayPlayer(){
         if(event.data===0){$("music-status").textContent="One more listen? Tap play. ♡";}
       },
       onAutoplayBlocked:()=>{$("music-status").textContent="Tap play below to start your birthday song. ♡";musicLabel(false);},
-      onError:event=>{songFailed=true;$("music-status").dataset.playerError=event.data;$("music-status").textContent="Your song is waiting on YouTube. Tap the link to listen. ♡";document.querySelector(".youtube-wrap").hidden=true;$("soundtrack").classList.add("local-audio");musicLabel(false);$("music-toggle").textContent="♫ Listen on YouTube";$("music-toggle").setAttribute("aria-label","Listen to birthday song on YouTube");}
+      onError:event=>{songFailed=true;$("music-status").dataset.playerError=event.data;$("music-status").textContent="The song is taking a little break. Tap Play song to try again. ♡";musicLabel(false);}
     }
   });
 }
@@ -383,7 +390,7 @@ $("music-toggle").onclick=()=>{
     if(localSong.paused){if(localSong.ended)localSong.currentTime=50;localSong.play().catch(()=>{});}else localSong.pause();
     return;
   }
-  if(songFailed){window.open($("song-link").href,"_blank","noopener");return;}
+  if(songFailed){songFailed=false;$("music-status").textContent="Trying your birthday song again…";if(songPlayer?.loadVideoById)songPlayer.loadVideoById({videoId:songId,startSeconds:songStart});else startBirthdayMusic();return;}
   if(!songPlayer?.getPlayerState){startBirthdayMusic();$("soundtrack").scrollIntoView({behavior:reducedMotion?"instant":"smooth"});return;}
   if(songPlayer.getPlayerState()===1){songPlayer.pauseVideo();}
   else{if(songPlayer.getPlayerState()===0)songPlayer.seekTo(songStart,true);songPlayer.playVideo();}
@@ -405,4 +412,3 @@ renderBook();updateCountdown();setInterval(updateCountdown,1000);
 </script>
 </body>
 </html>
-
