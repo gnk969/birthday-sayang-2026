@@ -77,6 +77,8 @@ html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8p
 .date-end{text-align:center;font:29px/1.1 var(--hand);color:#ae617c;margin:8px 0 0}
 @media(max-width:600px){.date-chapter{padding:65px 16px 75px}.date-note{padding:37px 25px 28px}.date-note .hand{font-size:29px}.date-intro{font-size:12px}.date-dress{font-size:12px;margin-bottom:26px}.date-route li{grid-template-columns:58px 14px minmax(0,1fr);gap:11px;min-height:93px}.date-route li:not(:last-child):before{left:75px}.date-time{font-size:10px}.date-pin{width:11px;height:11px;margin-left:1px}.date-route h3{font-size:21px}.date-route p{font-size:11px}.date-end{font-size:27px}}
 @media(max-width:360px){.date-note{padding-inline:19px}.date-route li{grid-template-columns:51px 12px minmax(0,1fr);gap:9px}.date-route li:not(:last-child):before{left:64px}.date-route h3{font-size:20px}}
+
+.date-invitation{margin:35px auto 0;max-width:430px;padding-top:26px;border-top:1px solid #e7d7ce}.closing .date-invitation p{margin-bottom:18px}.agenda-link{display:inline-flex;align-items:center;justify-content:center;gap:18px;text-decoration:none;min-height:50px}.scroll-reveal{opacity:0;transform:translateY(23px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);transition-delay:var(--reveal-delay,0ms)}.scroll-reveal.revealed{opacity:1;transform:none}.polaroid.scroll-reveal.revealed{transform:rotate(var(--r))}.polaroid.scroll-reveal{transform:translateY(25px) rotate(var(--r))}@media(prefers-reduced-motion:reduce){.scroll-reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -112,22 +114,7 @@ html{scroll-padding-top:20px}body{background-image:radial-gradient(#b96b7c0c .8p
   </div><div class="album-bottom"><span aria-hidden="true">↔</span><output id="page-counter" aria-live="polite">01 / 05</output></div><p class="swipe-hint" id="book-hint">Swipe left to turn the page</p></section>
   <section class="chapter"><p class="hand">some moments are better with the sound on</p><p class="eyebrow">One more memory</p><h2>A little moment.<br><em>A lovely memory.</em></h2><div class="video-frame" id="video-frame"></div></section>
   <section class="chapter wish-chapter"><p class="hand">♡</p><p class="eyebrow">A birthday wish for you</p><h2>For the year <em>ahead.</em></h2><div class="wish-text" id="wish"></div><p class="hand">May this be a gentle, happy year for you. ♡</p></section>
-  <section class="chapter date-chapter" id="birthday-date" aria-labelledby="date-title">
-    <div class="date-note">
-      <p class="hand">a little date, just for you ♡</p>
-      <h2 id="date-title">Your birthday <em>evening.</em></h2>
-      <p class="date-intro">Be ready at 6:00 PM, love. I hope you’re on time—there’s a little something waiting for you at our first stop.</p>
-      <div class="date-dress"><strong>Dress code</strong>Red, black, or a little bit of both. Wear whatever makes you feel lovely.</div>
-      <ol class="date-route" aria-label="Birthday date itinerary">
-        <li><span class="date-time">6:00 PM</span><span class="date-pin" aria-hidden="true"></span><div><h3>The beach</h3><p>First, a little sea breeze and a surprise just for you.</p></div></li>
-        <li><span class="date-time">Afterward</span><span class="date-pin" aria-hidden="true"></span><div><h3>Dinner at Kumendel</h3><p>Good food and a little time to enjoy the evening together.</p></div></li>
-        <li><span class="date-time">Then</span><span class="date-pin" aria-hidden="true"></span><div><h3>Arta Sedana</h3><p>Let’s find something fun to do and see where the night takes us.</p></div></li>
-        <li><span class="date-time">Last stop</span><span class="date-pin" aria-hidden="true"></span><div><h3>TAM</h3><p>One more stop to end your birthday night.</p></div></li>
-      </ol>
-      <p class="date-end">see you at six, birthday girl. ♡</p>
-    </div>
-  </section>
-  <footer class="closing"><p class="eyebrow">October 23 · Your day, sweet girl</p><h2>Happy Birthday, <em>Sayang.</em></h2><p>You deserve a day full of love, a year full of good things,<br>and so many reasons to smile.<br>You are loved, Sayang. Always.</p><div class="hand">Here's to your next beautiful chapter. ♡</div><small>All the love, just for you</small></footer>
+  <footer class="closing"><p class="eyebrow">October 23 · Your day, sweet girl</p><h2>Happy Birthday, <em>Sayang.</em></h2><p>You deserve a day full of love, a year full of good things,<br>and so many reasons to smile.<br>You are loved, Sayang. Always.</p><div class="hand">Here's to your next beautiful chapter. ♡</div><small>All the love, just for you</small><div class="date-invitation"><p>One more little plan for your birthday evening.</p><a class="btn agenda-link" href="agenda.html">Our birthday date <span aria-hidden="true">→</span></a></div></footer>
 </div>
 </main>
 <button id="music-toggle" class="music-toggle" type="button" hidden aria-label="Play birthday song">♫ Play song</button>
@@ -476,6 +463,13 @@ document.querySelectorAll(".screen,.chapter,.closing").forEach((section,index)=>
 });
 
 renderBook();updateCountdown();setInterval(updateCountdown,1000);
+// Setiap bagian baru muncul saat masuk layar. Musik berhenti saat pindah halaman agenda.
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+ const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');revealObserver.unobserve(entry.target);}}),{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
+ document.querySelectorAll('#surprise .chapter > h2,#surprise .chapter > .hand,#surprise .chapter > .sub,.polaroid,.book,.video-frame,.wish-text,.closing > h2,.closing > p,.date-invitation').forEach((el,i)=>{el.classList.add('scroll-reveal');if(el.classList.contains('polaroid'))el.style.setProperty('--reveal-delay',((i%2)*85)+'ms');revealObserver.observe(el);});
+}
+document.querySelector('.agenda-link').addEventListener('click',()=>{musicManuallyPaused=true;resumeSongAfterVideo=false;localSong.pause();songPlayer?.pauseVideo?.();document.querySelector('#video-frame video')?.pause();});
+
 </script>
 </body>
 </html>
